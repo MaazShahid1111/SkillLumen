@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillLumen - Bridge the Gap Between Students & Industry</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 60px 0;
+            background: #f9f9f9;
+        }
+
+        .programs h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #667eea;
+        }
+
+        .program-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .program-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .program-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #764ba2;
+        }
+
+        /* Internship Domains */
+        .domains {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .domains h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #667eea;
+        }
+
+        .domain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .domain-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .domain-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .domain-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .domain-card p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 10px;
+            position: relative;
+            animation: slideIn 0.3s;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        .modal-content h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .modal-content ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .modal-content li {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 60px 0;
+            background: #f9f9f9;
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #667eea;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            background: #667eea;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #764ba2;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .about h2,
+            .programs h2,
+            .domains h2,
+            .contact h2 {
+                font-size: 2rem;
+            }
+
+            .modal-content {
+                margin: 20px;
+                padding: 25px;
+            }
+
+            .modal-buttons {
+                flex-direction: column;
+            }
+
+            .program-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .domain-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>SkillLumen</h1>
+            <p>Bridging the Gap Between Students & Industry</p>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Welcome to SkillLumen, your gateway to industry-relevant internship experiences! Founded in 2024, we are a startup dedicated to bridging the gap between academic learning and industry requirements. We provide students with hands-on exposure to real-world projects and industry-standard tools.</p>
+            <p>Our mission is to equip students with practical skills and experience that prepare them for the professional world. Through our carefully designed internship programs, students gain valuable insights into their chosen fields while working on meaningful projects.</p>
+            <div class="note">
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs">
+        <div class="container">
+            <h2>Internship Programs</h2>
+            <div class="program-cards">
+                <div class="program-card">
+                    <h3>1 Month Program</h3>
+                    <p>Intensive short-term program designed to give you quick exposure to industry practices and tools.</p>
+                    <button class="btn" onclick="openProgramModal('1month')">Learn More & Apply</button>
+                </div>
+                <div class="program-card">
+                    <h3>3 Month Program</h3>
+                    <p>Comprehensive program offering deep dive into your chosen field with extensive hands-on projects.</p>
+                    <button class="btn" onclick="openProgramModal('3month')">Learn More & Apply</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Domains Section -->
+    <section class="domains">
+        <div class="container">
+            <h2>Internship Domains We Offer</h2>
+            <div class="domain-grid">
+                <div class="domain-card" onclick="openDomainModal('cybersecurity')">
+                    <h3>🔒 Cyber Security</h3>
+                    <p>Learn ethical hacking, network security, and threat analysis</p>
+                </div>
+                <div class="domain-card" onclick="openDomainModal('frontend')">
+                    <h3>🎨 Front-End Development</h3>
+                    <p>Master HTML, CSS, JavaScript and modern frameworks</p>
+                </div>
+                <div class="domain-card" onclick="openDomainModal('backend')">
+                    <h3>⚙️ Back-End Development</h3>
+                    <p>Build robust server-side applications and APIs</p>
+                </div>
+                <div class="domain-card" onclick="openDomainModal('fullstack')">
+                    <h3>💻 Full Stack/Web Development</h3>
+                    <p>Complete end-to-end web application development</p>
+                </div>
+                <div class="domain-card" onclick="openDomainModal('python')">
+                    <h3>🐍 Python Developer</h3>
+                    <p>Develop applications using Python and its frameworks</p>
+                </div>
+                <div class="domain-card" onclick="openDomainModal('devops')">
+                    <h3>🔧 DevOps</h3>
+                    <p>Learn CI/CD, containerization, and cloud technologies</p>
+                </div>
+                <div class="domain-card" onclick="openDomainModal('aiml')">
+                    <h3>🤖 AI/ML</h3>
+                    <p>Explore machine learning algorithms and AI applications</p>
+                </div>
+                <div class="domain-card" onclick="openDomainModal('dataanalyst')">
+                    <h3>📊 Data Analyst</h3>
+                    <p>Analyze data, create visualizations, and derive insights</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2>Have Issues or Questions?</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email *</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="complaint">Your Message/Complaint *</label>
+                        <textarea id="complaint" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Submit</button>
+                    <div class="success-message" id="successMessage">
+                        Thank you! Your message has been sent successfully.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 SkillLumen. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/skilllumen" target="_blank">LinkedIn</a>
+                <a href="https://www.instagram.com/skilllumen" target="_blank">Instagram</a>
+                <a href="https://whatsapp.com/channel/0029VbBiCDzG8l5EHkslzU3o" target="_blank">WhatsApp Channel</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Program Modal -->
+    <div id="programModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('programModal')">&times;</span>
+            <h3 id="programTitle"></h3>
+            <div id="programDetails"></div>
+            <div class="modal-buttons">
+                <button class="btn" id="applyBtn1Month" style="display:none;" onclick="window.open('https://forms.gle/uoEvNAFBAQZxegQU9', '_blank')">Apply for 1 Month</button>
+                <button class="btn" id="applyBtn3Month" style="display:none;" onclick="window.open('https://forms.google.com/your-3month-form', '_blank')">Apply for 3 Months</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Domain Modal -->
+    <div id="domainModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('domainModal')">&times;</span>
+            <h3 id="domainTitle"></h3>
+            <div id="domainDetails"></div>
+        </div>
+    </div>
+
+    <script>
+        // Program Modal
+        function openProgramModal(type) {
+            const modal = document.getElementById('programModal');
+            const title = document.getElementById('programTitle');
+            const details = document.getElementById('programDetails');
+            const btn1 = document.getElementById('applyBtn1Month');
+            const btn3 = document.getElementById('applyBtn3Month');
+
+            if (type === '1month') {
+                title.textContent = '1 Month Internship Program';
+                details.innerHTML = `
+                    <p><strong>Duration:</strong> 1 Month (4 weeks)</p>
+                    <h4>What You'll Get:</h4>
+                    <ul>
+                        <li>Hands-on exposure to industry-standard tools and technologies</li>
+                        <li>Real-world project experience in your chosen domain</li>
+                        <li>Guidance from experienced mentors</li>
+                        <li>Certificate of internship completion</li>
+                        <li>Practical skills applicable in the industry</li>
+                        <li>Portfolio-worthy projects to showcase</li>
+                    </ul>
+                    <h4>Program Structure:</h4>
+                    <ul>
+                        <li>Week 1: Introduction to tools and technologies</li>
+                        <li>Week 2-3: Hands-on project work</li>
+                        <li>Week 4: Project completion and review</li>
+                    </ul>
+                `;
+                btn1.style.display = 'inline-block';
+                btn3.style.display = 'none';
+            } else {
+                title.textContent = '3 Month Internship Program';
+                details.innerHTML = `
+                    <p><strong>Duration:</strong> 3 Months (12 weeks)</p>
+                    <h4>What You'll Get:</h4>
+                    <ul>
+                        <li>Comprehensive hands-on exposure to industry practices</li>
+                        <li>Multiple real-world projects in your chosen domain</li>
+                        <li>In-depth mentorship and regular feedback sessions</li>
+                        <li>Certificate of internship completion</li>
+                        <li>Advanced skill development and industry insights</li>
+                        <li>Extensive portfolio of completed projects</li>
+                        <li>Networking opportunities with industry professionals</li>
+                    </ul>
+                    <h4>Program Structure:</h4>
+                    <ul>
+                        <li>Month 1: Foundation building and tool mastery</li>
+                        <li>Month 2: Advanced concepts and project implementation</li>
+                        <li>Month 3: Complex projects and specialization</li>
+                    </ul>
+                `;
+                btn3.style.display = 'inline-block';
+                btn1.style.display = 'none';
+            }
+
+            modal.style.display = 'block';
+        }
+
+        // Domain Modal
+        const domainData = {
+            cybersecurity: {
+                title: '🔒 Cyber Security Internship',
+                content: `
+                    <h4>Program Overview:</h4>
+                    <p>Learn the fundamentals of cybersecurity through practical exercises and real-world scenarios.</p>
+                    
+                    <h4>Task Structure:</h4>
+                    <ul>
+                        <li><strong>Easy Task:</strong> Basic network scanning and vulnerability identification</li>
+                        <li><strong>Medium Task:</strong> Web application security testing and penetration testing basics</li>
+                        <li><strong>Hard Task:</strong> Advanced threat detection and incident response simulation</li>
+                    </ul>
+                    
+                    <h4>Skills You'll Develop:</h4>
+                    <ul>
+                        <li>Network security fundamentals</li>
+                        <li>Ethical hacking techniques</li>
+                        <li>Security tools (Wireshark, Nmap, Metasploit)</li>
+                        <li>Vulnerability assessment</li>
+                        <li>Security best practices</li>
+                    </ul>
+                `
+            },
+            frontend: {
+                title: '🎨 Front-End Development Internship',
+                content: `
+                    <h4>Program Overview:</h4>
+                    <p>Master the art of creating beautiful and responsive user interfaces.</p>
+                    
+                    <h4>Task Structure:</h4>
+                    <ul>
+                        <li><strong>Easy Task:</strong> Build a responsive landing page with HTML, CSS, and JavaScript</li>
+                        <li><strong>Medium Task:</strong> Create an interactive web application using a modern framework</li>
+                        <li><strong>Hard Task:</strong> Develop a complex single-page application with state management</li>
+                    </ul>
+                    
+                    <h4>Skills You'll Develop:</h4>
+                    <ul>
+                        <li>HTML5, CSS3, JavaScript (ES6+)</li>
+                        <li>React.js or Vue.js</li>
+                        <li>Responsive design and mobile-first approach</li>
+                        <li>UI/UX principles</li>
+                        <li>Version control with Git</li>
+                    </ul>
+                `
+            },
+            backend: {
+                title: '⚙️ Back-End Development Internship',
+                content: `
+                    <h4>Program Overview:</h4>
+                    <p>Learn to build robust server-side applications and RESTful APIs.</p>
+                    
+                    <h4>Task Structure:</h4>
+                    <ul>
+                        <li><strong>Easy Task:</strong> Create a simple REST API with basic CRUD operations</li>
+                        <li><strong>Medium Task:</strong> Build an API with authentication and database integration</li>
+                        <li><strong>Hard Task:</strong> Develop a scalable microservices architecture</li>
+                    </ul>
+                    
+                    <h4>Skills You'll Develop:</h4>
+                    <ul>
+                        <li>Node.js, Express.js, or Django</li>
+                        <li>Database design (SQL and NoSQL)</li>
+                        <li>RESTful API development</li>
+                        <li>Authentication and authorization</li>
+                        <li>Server deployment and management</li>
+                    </ul>
+                `
+            },
+            fullstack: {
+                title: '💻 Full Stack/Web Development Internship',
+                content: `
+                    <h4>Program Overview:</h4>
+                    <p>Become a complete web developer by mastering both front-end and back-end technologies.</p>
+                    
+                    <h4>Task Structure:</h4>
+                    <ul>
+                        <li><strong>Easy Task:</strong> Build a simple full-stack application with basic features</li>
+                        <li><strong>Medium Task:</strong> Create a dynamic web app with user authentication</li>
+                        <li><strong>Hard Task:</strong> Develop a complete production-ready web application</li>
+                    </ul>
+                    
+                    <h4>Skills You'll Develop:</h4>
+                    <ul>
+                        <li>Front-end and back-end integration</li>
+                        <li>Full MERN/MEAN stack development</li>
+                        <li>Database design and management</li>
+                        <li>API development and consumption</li>
+                        <li>Deployment and hosting</li>
+                    </ul>
+                `
+            },
+            python: {
+                title: '🐍 Python Developer Internship',
+                content: `
+                    <h4>Program Overview:</h4>
+                    <p>Master Python programming and its powerful frameworks for various applications.</p>
+                    
+                    <h4>Task Structure:</h4>
+                    <ul>
+                        <li><strong>Easy Task:</strong> Create automation scripts and basic Python programs</li>
+                        <li><strong>Medium Task:</strong> Build a web application using Flask or Django</li>
+                        <li><strong>Hard Task:</strong> Develop a complex data processing or automation system</li>
+                    </ul>
+                    
+                    <h4>Skills You'll Develop:</h4>
+                    <ul>
+                        <li>Python programming fundamentals</li>
+                        <li>Django or Flask framework</li>
+                        <li>Data manipulation with Pandas</li>
+                        <li>Automation and scripting</li>
+                        <li>Working with APIs and libraries</li>
+                    </ul>
+                `
+            },
+            devops: {
+                title: '🔧 DevOps Internship',
+                content: `
+                    <h4>Program Overview:</h4>
+                    <p>Learn the practices and tools that bridge development and operations.</p>
+                    
+                    <h4>Task Structure:</h4>
+                    <ul>
+                        <li><strong>Easy Task:</strong> Set up basic CI/CD pipeline and version control</li>
+                        <li><strong>Medium Task:</strong> Containerize applications using Docker</li>
+                        <li><strong>Hard Task:</strong> Implement complete DevOps pipeline with monitoring</li>
+                    </ul>
+                    
+                    <h4>Skills You'll Develop:</h4>
+                    <ul>
+                        <li>CI/CD with Jenkins or GitLab</li>
+                        <li>Docker and Kubernetes</li>
+                        <li>Cloud platforms (AWS, Azure, or GCP)</li>
+                        <li>Infrastructure as Code</li>
+                        <li>Monitoring and logging</li>
+                    </ul>
+                `
+            },
+            aiml: {
+                title: '🤖 AI/ML Internship',
+                content: `
+                    <h4>Program Overview:</h4>
+                    <p>Dive into the exciting world of Artificial Intelligence and Machine Learning.</p>
+                    
+                    <h4>Task Structure:</h4>
+                    <ul>
+                        <li><strong>Easy Task:</strong> Build basic ML models with standard datasets</li>
+                        <li><strong>Medium Task:</strong> Develop a predictive model with data preprocessing</li>
+                        <li><strong>Hard Task:</strong> Create an advanced AI application with deep learning</li>
+                    </ul>
+                    
+                    <h4>Skills You'll Develop:</h4>
+                    <ul>
+                        <li>Machine Learning algorithms</li>
+                        <li>Python libraries (NumPy, Pandas, Scikit-learn)</li>
+                        <li>Deep Learning with TensorFlow or PyTorch</li>
+                        <li>Data preprocessing and feature engineering</li>
+                        <li>Model evaluation and optimization</li>
+                    </ul>
+                `
+            },
+            dataanalyst: {
+                title: '📊 Data Analyst Internship',
+                content: `
+                    <h4>Program Overview:</h4>
+                    <p>Learn to extract insights from data and create compelling visualizations.</p>
+                    
+                    <h4>Task Structure:</h4>
+                    <ul>
+                        <li><strong>Easy Task:</strong> Perform basic data analysis and create simple visualizations</li>
+                        <li><strong>Medium Task:</strong> Conduct statistical analysis and build dashboards</li>
+                        <li><strong>Hard Task:</strong> Complete end-to-end data analysis project with insights</li>
+                    </ul>
+                    
+                    <h4>Skills You'll Develop:</h4>
+                    <ul>
+                        <li>Data analysis with Python or R</li>
+                        <li>SQL for data querying</li>
+                        <li>Data visualization (Tableau, Power BI)</li>
+                        <li>Statistical analysis techniques</li>
+                        <li>Creating insightful reports and dashboards</li>
+                    </ul>
+                `
+            }
+        };
+
+        function openDomainModal(domain) {
+            const modal = document.getElementById('domainModal');
+            const title = document.getElementById('domainTitle');
+            const details = document.getElementById('domainDetails');
+
+            const data = domainData[domain];
+            title.textContent = data.title;
+            details.innerHTML = data.content;
+
+            modal.style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const complaint = document.getElementById('complaint').value;
+
+            // Replace with your admin email
+            const adminEmail = 'sirmaazshahid1111.com';
+            const subject = encodeURIComponent('SkillLumen - New Message from ' + name);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${complaint}`);
+            
+            // Open email client
+            window.location.href = `mailto:${adminEmail}?subject=${subject}&body=${body}`;
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
