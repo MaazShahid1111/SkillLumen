@@ -1,108 +1,82 @@
 <div align="center">
 
-███████╗██╗  ██╗██╗██╗     ██╗     ██╗   ██╗███╗   ███╗███████╗███╗   ██╗
-██╔════╝██║ ██╔╝██║██║     ██║     ██║   ██║████╗ ████║██╔════╝████╗  ██║
-███████╗█████╔╝ ██║██║     ██║     ██║   ██║██╔████╔██║█████╗  ██╔██╗ ██║
-╚════██║██╔═██╗ ██║██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  ██║╚██╗██║
-███████║██║  ██╗██║███████╗███████╗╚██████╔╝██║ ╚═╝ ██║███████╗██║ ╚████║
-╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝
-
-**The Ultimate Industry-Bridge Engine**
-*Stop studying the past. Start building the future.*
-
-<br/>
-
-[![Version](https://img.shields.io/badge/Version-2.0.4--Stable-667eea?style=for-the-badge)](/)
-[![UX/UI](https://img.shields.io/badge/UX-Psychology--Driven-764ba2?style=for-the-badge)](/)
-[![Performance](https://img.shields.io/badge/Performance-99%2B_Lighthouse-brightgreen?style=for-the-badge)](/)
-
-</div>
-
-<div align="center">
-🔥 **High-Speed Framework-Less Architecture. Zero Dependencies. Maximum Impact.**
-</div>
-
----
-
-## 🎯 The Mission
-Most education platforms are cemeteries of dead links. **SkillLumen** is a living ecosystem. It doesn't just show you an internship; it maps your entire trajectory from student to industry professional using a high-performance, modular frontend architecture.
-
-### The Pipeline:
-**Discovery** (8+ Domains) → **Deep-Dive** (Task Tiering) → **Execution** (Real-world Simulation) → **Certification**
-
----
-
-## ✨ Pro-Level Features
-| Feature | Technical Implementation | Impact |
-| :--- | :--- | :--- |
-| **Modular DOM Engine** | Centralized `domainData` mapping | 0ms latency on content switching |
-| **Task Tiering (E/M/H)** | Difficulty-indexed object schema | Guided learning pathing |
-| **Neural UX Palette** | Linear 135deg CSS Gradient Theory | High user retention & brand trust |
-| **State Persistence** | Logic-based modal state management | Prevented layout shifts (CLS) |
-| **Responsive Grid 2.0** | Fluid `minmax` fractional units | Perfect 1:1 view on any device |
-
----
-
-## 🛠️ The Tech Stack (Next-Gen Vanilla)
-I didn't use React or Vue. **Why?** Because a real master understands the DOM.
-* **Vanilla JS (ES12+):** Utilizing clean, asynchronous logic and event delegation.
-* **CSS3 Power-Pack:** No Bootstrap. Custom Flexbox/Grid systems for absolute layout control.
-* **HTML5 Semantic Core:** Optimized for SEO and Accessibility (A11y).
-
----
-
-## 🚀 Quick Start for Developers
-
-1. **Clone the Source:**
-   ```bash
-   git clone [https://github.com/MaazShahid1111/skilllumen.git](https://github.com/MaazShahid1111/skilllumen.git)
-
-```
-
-2. **Spin Up (No NPM required):**
-```bash
-# If you have Python
-python -m http.server 8080
-
-```
-
-
-3. **Modify the Engine:**
-Add a new domain in `index.html` within the `<script>` tag's `domainData` object. The UI will auto-generate the new card and modal immediately.
-
----
-
-## 📂 Project Structure
+# ⚡ SKILLUMEN ⚡
+### THE ELITE INDUSTRY-BRIDGE ENGINE
 
 ```text
-SKILLUMEN/
-├── index.html          <-- The "One-File" High-Speed Engine
-├── assets/             
-│   ├── branding/       <-- Optimized SVG/WebP assets
-│   └── docs/           <-- Technical specs
-└── README.md           <-- You are here
+ ██████╗██╗  ██╗██╗██╗     ██╗     ██╗   ██╗███╗   ███╗███████╗███╗   ██╗
+██╔════╝██║ ██╔╝██║██║     ██║     ██║   ██║████╗ ████║██╔════╝████╗  ██║
+╚█████╗ █████╔╝ ██║██║     ██║     ██║   ██║██╔████╔██║█████╗  ██╔██╗ ██║
+ ╚═══██╗██╔═██╗ ██║██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  ██║╚██╗██║
+██████╔╝██║  ██╗██║███████╗███████╗╚██████╔╝██║ ╚═╝ ██║███████╗██║ ╚████║
+╚═════╝ ╚═╝  ╚═╝╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝
+
+```
+
+**Stop studying the past. Start building the future.**
+
+---
+
+### 🛡️ Engineering Philosophy
+
+Most platforms are bloated. **SkillLumen** is lean. It’s built on the principle of **High-Speed Cognitive UX**—meaning information is delivered the microsecond a user needs it, with zero friction and zero latency.
+
+* **Dynamic Injection:** Content is mapped through a robust JS logic-gate system.
+* **Zero-Bypass Architecture:** State management that ensures data integrity across 8+ domains.
+* **Visual Psychological Anchoring:** Uses high-contrast 135° gradients to reduce bounce rates.
+
+---
+
+### 🧬 The "Beast" Tier Specs
+
+| Module | Technical Execution | Impact |
+| --- | --- | --- |
+| **Logic Core** | Object-Oriented Domain Handling | Instant scalability for new niches |
+| **UX Engine** | Framework-less CSS3 Transitions | 60FPS interaction on all devices |
+| **Data Layer** | Tiered Task Structure (E/M/H) | Gamified retention & learning |
+| **Connectivity** | SMTP-Direct Integration | Real-time lead generation & conversion |
+
+---
+
+### 💻 Deep-Dive Implementation
+
+```javascript
+// Example of the high-speed modular architecture
+function openDomainModal(domain) {
+    const data = domainData[domain]; // O(1) Lookup Speed
+    title.textContent = data.title;
+    details.innerHTML = data.content; // Scoped injection
+    modal.style.display = 'block';
+}
 
 ```
 
 ---
 
-## ⚠️ Security & Optimization Note
+### 📂 Quick Start for Professionals
 
-This code is built to be **injection-proof**. All innerHTML injections are scoped to trusted internal data objects, preventing XSS vulnerabilities common in un-sanitized frontend apps.
+```bash
+# 1. Access the Engine
+git clone [https://github.com/MaazShahid1111/skilllumen.git](https://github.com/MaazShahid1111/skilllumen.git)
 
-* **Load Time:** < 400ms
-* **Request Count:** 1 (Optimized)
-* **Global Reach:** 120+ Countries Ready
+# 2. Deploy Locally
+# No heavy dependencies. No vulnerabilities. Just code.
+open index.html
+
+```
 
 ---
 
-## 👤 The Architect
+### 👤 The Architect
 
-### **Maaz Shahid**
+**Maaz Shahid**
+*Security Researcher | Full Stack Developer | Logic Architect*
 
-**Engineering the bridge between "I know" and "I can."**
+[LinkedIn](https://www.linkedin.com/company/skilllumen) | [Instagram](https://www.instagram.com/skilllumen) | [WhatsApp](https://whatsapp.com/channel/0029VbBiCDzG8l5EHkslzU3o)
 
-**"Code is easy. Architecture is hard. I do both."**
+**"I don't just write code. I build weapons for progress."**
 
-⭐ Star this repo if you're ready to disrupt the status quo.
+⭐ Star this repository if you're built different.
+
 ---
+
